@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 생성자 인젝션 -->
+	<bean id="rectangleBean" class="rectangle.exam.RectangleImpl">
+		<constructor-arg>
+			<value>10.0</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>4.0</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 생성자 인젝션 -->
+	<bean id="sadari" class="rectangle.exam.Sadari">
+		<constructor-arg>
+			<value>10</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>20</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>15</value>
+		</constructor-arg>
+	</bean>
+</beans>
