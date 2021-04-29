@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.16.202101120103-CI-B2760]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/webapp/WEB-INF/config/roadmap-config.xml</config>
+	</configs>
+	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/config/review-config.xml</config>
+		<config>src/main/webapp/WEB-INF/config/community-config.xml</config>
+		<config>src/main/webapp/WEB-INF/config/ranking-config.xml</config>
+		<config>src/main/webapp/WEB-INF/root-context.xml</config>
+		<config>src/main/webapp/WEB-INF/config/member-config.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

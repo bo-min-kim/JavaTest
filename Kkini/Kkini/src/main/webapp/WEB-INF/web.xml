@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/root-context.xml</param-value>
+	</context-param>
+	
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/member/loginForm.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- member section -->
+	<servlet>
+		<servlet-name>member</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/member-config.xml</param-value>
+		</init-param>		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>member</servlet-name>
+		<url-pattern>*.me</url-pattern>
+	</servlet-mapping>
+	
+	<!-- ranking section -->
+	<servlet>
+		<servlet-name>ranking</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/ranking-config.xml</param-value>
+		</init-param>		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ranking</servlet-name>
+		<url-pattern>*.rk</url-pattern>
+	</servlet-mapping>
+	
+	<!-- community section -->
+	<servlet>
+		<servlet-name>community</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/community-config.xml</param-value>
+		</init-param>		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>community</servlet-name>
+		<url-pattern>*.cm</url-pattern>
+	</servlet-mapping>
+	
+	<!-- review section -->
+	<servlet>
+		<servlet-name>review</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/review-config.xml</param-value>
+		</init-param>		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>review</servlet-name>
+		<url-pattern>*.rw</url-pattern>
+	</servlet-mapping>
+	
+	<!-- roadmap section -->
+	<servlet>
+		<servlet-name>roadmap</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/roadmap-config.xml</param-value>
+		</init-param>		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>roadmap</servlet-name>
+		<url-pattern>*.rd</url-pattern>
+	</servlet-mapping>
+
+</web-app>

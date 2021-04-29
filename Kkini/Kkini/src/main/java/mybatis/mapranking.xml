@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MapperRanking">
+	<sql id="myselect">
+		select rk_no, rk_id, rk_restaurant, rk_menu, rk_category
+		,rk_memo,rk_address,rk_location1,rk_location2
+		from rankings
+	</sql>
+	<select id="SelectDataList" resultType="MyRanking">
+		<include refid="myselect" />
+		where rk_id = #{rk_id}
+		order by rk_no desc
+	</select>	
+</mapper>

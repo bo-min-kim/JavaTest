@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MapperReview">
+	<sql id="myselect">
+		select *
+		from reviews
+	</sql>
+	<select id="SelectTotalCount" resultType="int">
+		select count(*) as cnt from reviews	
+		where rw_name like #{keyword}
+		or rw_writer like #{keyword}
+		or rw_area like #{keyword}
+		or rw_category like #{keyword}
+		or rw_menu like #{keyword}
+	</select>
+		
+	<select id="SelectDataList" resultType="MyReview">
+		<include refid="myselect" />
+		where rw_name like #{keyword}
+		or rw_writer like #{keyword}
+		or rw_area like #{keyword}
+		or rw_category like #{keyword}
+		or rw_menu like #{keyword}
+		order by rw_no desc
+	</select>
+	<insert id="InsertData" parameterType="MyReview">
+		insert into 
+		reviews(rw_no,rw_name,rw_writer,rw_area,rw_taste,rw_price,
+				rw_service,rw_total,rw_revisit,rw_comment,rw_image,
+				rw_category,rw_remark,rw_want,rw_went,rw_menu,
+    			rw_location1,rw_location2)		
+		values(myreview.nextval, #{rw_name},#{rw_writer},#{rw_area},#{rw_taste},#{rw_price},
+				#{rw_service},#{rw_total},#{rw_revisit},#{rw_comment},#{rw_image},
+				#{rw_category},#{rw_remark},#{rw_want},#{rw_went},#{rw_menu},
+    			#{rw_location1},#{rw_location2})
+</insert>
+</mapper>
